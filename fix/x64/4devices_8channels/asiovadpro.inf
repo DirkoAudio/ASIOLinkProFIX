@@ -1,0 +1,244 @@
+[Version]
+Signature="$Windows NT$"
+Class=MEDIA
+Provider=%JJShield%
+ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
+DriverVer=02/16/2017,13.37.53.775
+CatalogFile=asiovadpro.cat
+
+[SourceDisksNames]
+222="ASIOVADPRO Driver Disk","",222
+
+[SourceDisksFiles]
+asiovadpro.sys=222
+
+;;This syntax is only recognized on Windows XP and above- it is needed to install 64-bit drivers on
+;;Windows Server 2003 Service Pack 1 and above.
+
+[Manufacturer]
+%MfgName%=MicrosoftDS,NTAMD64,NTIA64
+
+;;  For Windows Server 2003 Service Pack 1 and above, a 64-bit OS will not install a driver
+;;  unless the Manufacturer and Models Sections explicitly show it is a driver for that platform
+;;  But the individual model section decorations (or lack thereof) work as they always have.
+;;  All of the model sections referred to are undecorated or NT-decorated, hence work on all platforms
+
+[MicrosoftDS]
+%ASIOVADPRO.DeviceDesc%=ASIOVADPRO,*ASIOVADPRO
+
+;; This section enables installing on x64 systems
+
+[MicrosoftDS.NTAMD64]
+%ASIOVADPRO.DeviceDesc%=ASIOVADPRO,*ASIOVADPRO
+
+;;  This section enables installing on Itanium systems
+
+[MicrosoftDS.NTIA64]
+%ASIOVADPRO.DeviceDesc%=ASIOVADPRO,*ASIOVADPRO
+
+[DestinationDirs]
+ASIOVADPRO.CopyList=12
+
+;======================================================
+; ASIOVADPRO
+;======================================================
+[ASIOVADPRO]
+AlsoInstall=ks.registration(ks.inf),wdmaudio.registration(wdmaudio.inf)
+CopyFiles=ASIOVADPRO.CopyList
+AddReg=ASIOVADPRO.AddReg
+
+[ASIOVADPRO.CopyList]
+asiovadpro.sys
+
+[ASIOVADPRO.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Wave1%,ASIOVADPRO.I.Wave1
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_Wave1%,ASIOVADPRO.I.Wave1
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_Wave1%,ASIOVADPRO.I.Wave1
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Topology1%,ASIOVADPRO.I.Topo1
+AddInterface=%KSCATEGORY_TOPOLOGY%,%KSNAME_Topology1%,ASIOVADPRO.I.Topo1
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Wave2%,ASIOVADPRO.I.Wave2
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_Wave2%,ASIOVADPRO.I.Wave2
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_Wave2%,ASIOVADPRO.I.Wave2
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Topology2%,ASIOVADPRO.I.Topo2
+AddInterface=%KSCATEGORY_TOPOLOGY%,%KSNAME_Topology2%,ASIOVADPRO.I.Topo2
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Wave3%,ASIOVADPRO.I.Wave3
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_Wave3%,ASIOVADPRO.I.Wave3
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_Wave3%,ASIOVADPRO.I.Wave3
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Topology3%,ASIOVADPRO.I.Topo3
+AddInterface=%KSCATEGORY_TOPOLOGY%,%KSNAME_Topology3%,ASIOVADPRO.I.Topo3
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Wave4%,ASIOVADPRO.I.Wave4
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_Wave4%,ASIOVADPRO.I.Wave4
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_Wave4%,ASIOVADPRO.I.Wave4
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Topology4%,ASIOVADPRO.I.Topo4
+AddInterface=%KSCATEGORY_TOPOLOGY%,%KSNAME_Topology4%,ASIOVADPRO.I.Topo4
+
+[ASIOVADPRO.AddReg]
+HKR,,AssociatedFilters,,"wdmaud,redbook"
+HKR,,Driver,,asiovadpro.sys
+
+HKR,Drivers,SubClasses,,"wave,mixer"
+
+HKR,Drivers\wave\wdmaud.drv,Driver,,wdmaud.drv
+HKR,Drivers\mixer\wdmaud.drv,Driver,,wdmaud.drv
+
+HKR,Drivers\wave\wdmaud.drv,Description,,%ASIOVADPRO.DeviceDesc%
+HKR,Drivers\mixer\wdmaud.drv,Description,,%ASIOVADPRO.DeviceDesc%
+
+;======================================================
+;======================================================
+; COMMON
+;======================================================
+[ASIOVADPRO.I.Wave1]
+AddReg=ASIOVADPRO.I.Wave1.AddReg
+[ASIOVADPRO.I.Wave1.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%ASIOVADPRO.Wave1.szPname%
+
+[ASIOVADPRO.I.Topo1]
+AddReg=ASIOVADPRO.I.Topo1.AddReg, OEMSettingsOverride.AddReg
+[ASIOVADPRO.I.Topo1.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%ASIOVADPRO.Topo1.szPname%
+
+[ASIOVADPRO.I.Wave2]
+AddReg=ASIOVADPRO.I.Wave2.AddReg
+[ASIOVADPRO.I.Wave2.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%ASIOVADPRO.Wave2.szPname%
+
+[ASIOVADPRO.I.Topo2]
+AddReg=ASIOVADPRO.I.Topo2.AddReg, OEMSettingsOverride2.AddReg
+[ASIOVADPRO.I.Topo2.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%ASIOVADPRO.Topo2.szPname%
+
+[ASIOVADPRO.I.Wave3]
+AddReg=ASIOVADPRO.I.Wave3.AddReg
+[ASIOVADPRO.I.Wave3.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%ASIOVADPRO.Wave3.szPname%
+
+[ASIOVADPRO.I.Topo3]
+AddReg=ASIOVADPRO.I.Topo3.AddReg, OEMSettingsOverride3.AddReg
+[ASIOVADPRO.I.Topo3.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%ASIOVADPRO.Topo3.szPname%
+
+[ASIOVADPRO.I.Wave4]
+AddReg=ASIOVADPRO.I.Wave4.AddReg
+[ASIOVADPRO.I.Wave4.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%ASIOVADPRO.Wave4.szPname%
+
+[ASIOVADPRO.I.Topo4]
+AddReg=ASIOVADPRO.I.Topo4.AddReg, OEMSettingsOverride4.AddReg
+[ASIOVADPRO.I.Topo4.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%ASIOVADPRO.Topo4.szPname%
+
+
+[OEMSettingsOverride.AddReg]
+HKR,"EP\\0", %PKEY_AudioEndpoint_Association%,,%KSNODETYPE_SPEAKER%
+HKR,"EP\\0", %PKEY_AudioEngine_OEMFormat%, %REG_BINARY%, 41,00,00,00,28,00,00,00,FE,FF,08,00,44,AC,00,00,40,C4,0A,00,10,00,10,00,16,00,10,00,3F,06,00,00,01,00,00,00,00,00,10,00,80,00,00,AA,00,38,9B,71
+HKR,"EP\\0", %PKEY_Device_DeviceDesc%,,%DeviceDescRender1%
+HKR,"EP\\1", %PKEY_AudioEndpoint_Association%,,%KSNODETYPE_MULTITRACK_RECORDER%
+HKR,"EP\\1", %PKEY_AudioEngine_OEMFormat%, %REG_BINARY%, 41,00,00,00,28,00,00,00,FE,FF,02,00,44,AC,00,00,10,B1,02,00,04,00,10,00,16,00,10,00,03,00,00,00,01,00,00,00,00,00,10,00,80,00,00,AA,00,38,9B,71
+HKR,"EP\\1", %PKEY_Device_DeviceDesc%,,%DeviceDescCapture1%
+HKR,"EP\\1", %PKEY_AudioDevice_EnableEndpointByDefault%,0x00010001,0x00000201
+
+[OEMSettingsOverride2.AddReg]
+HKR,"EP\\0", %PKEY_AudioEndpoint_Association%,,%KSNODETYPE_SPEAKER%
+HKR,"EP\\0", %PKEY_AudioEngine_OEMFormat%, %REG_BINARY%, 41,00,00,00,28,00,00,00,FE,FF,08,00,44,AC,00,00,40,C4,0A,00,10,00,10,00,16,00,10,00,3F,06,00,00,01,00,00,00,00,00,10,00,80,00,00,AA,00,38,9B,71
+HKR,"EP\\0", %PKEY_Device_DeviceDesc%,,%DeviceDescRender2%
+HKR,"EP\\1", %PKEY_AudioEndpoint_Association%,,%KSNODETYPE_MULTITRACK_RECORDER%
+HKR,"EP\\1", %PKEY_AudioEngine_OEMFormat%, %REG_BINARY%, 41,00,00,00,28,00,00,00,FE,FF,02,00,44,AC,00,00,10,B1,02,00,04,00,10,00,16,00,10,00,03,00,00,00,01,00,00,00,00,00,10,00,80,00,00,AA,00,38,9B,71
+HKR,"EP\\1", %PKEY_Device_DeviceDesc%,,%DeviceDescCapture2%
+HKR,"EP\\1", %PKEY_AudioDevice_EnableEndpointByDefault%,0x00010001,0x00000201
+
+[OEMSettingsOverride3.AddReg]
+HKR,"EP\\0", %PKEY_AudioEndpoint_Association%,,%KSNODETYPE_SPEAKER%
+HKR,"EP\\0", %PKEY_AudioEngine_OEMFormat%, %REG_BINARY%, 41,00,00,00,28,00,00,00,FE,FF,08,00,44,AC,00,00,40,C4,0A,00,10,00,10,00,16,00,10,00,3F,06,00,00,01,00,00,00,00,00,10,00,80,00,00,AA,00,38,9B,71
+HKR,"EP\\0", %PKEY_Device_DeviceDesc%,,%DeviceDescRender3%
+HKR,"EP\\1", %PKEY_AudioEndpoint_Association%,,%KSNODETYPE_MULTITRACK_RECORDER%
+HKR,"EP\\1", %PKEY_AudioEngine_OEMFormat%, %REG_BINARY%, 41,00,00,00,28,00,00,00,FE,FF,02,00,44,AC,00,00,10,B1,02,00,04,00,10,00,16,00,10,00,03,00,00,00,01,00,00,00,00,00,10,00,80,00,00,AA,00,38,9B,71
+HKR,"EP\\1", %PKEY_Device_DeviceDesc%,,%DeviceDescCapture3%
+HKR,"EP\\1", %PKEY_AudioDevice_EnableEndpointByDefault%,0x00010001,0x00000201
+
+[OEMSettingsOverride4.AddReg]
+HKR,"EP\\0", %PKEY_AudioEndpoint_Association%,,%KSNODETYPE_SPEAKER%
+HKR,"EP\\0", %PKEY_AudioEngine_OEMFormat%, %REG_BINARY%, 41,00,00,00,28,00,00,00,FE,FF,08,00,44,AC,00,00,40,C4,0A,00,10,00,10,00,16,00,10,00,3F,06,00,00,01,00,00,00,00,00,10,00,80,00,00,AA,00,38,9B,71
+HKR,"EP\\0", %PKEY_Device_DeviceDesc%,,%DeviceDescRender4%
+HKR,"EP\\1", %PKEY_AudioEndpoint_Association%,,%KSNODETYPE_MULTITRACK_RECORDER%
+HKR,"EP\\1", %PKEY_AudioEngine_OEMFormat%, %REG_BINARY%, 41,00,00,00,28,00,00,00,FE,FF,02,00,44,AC,00,00,10,B1,02,00,04,00,10,00,16,00,10,00,03,00,00,00,01,00,00,00,00,00,10,00,80,00,00,AA,00,38,9B,71
+HKR,"EP\\1", %PKEY_Device_DeviceDesc%,,%DeviceDescCapture4%
+HKR,"EP\\1", %PKEY_AudioDevice_EnableEndpointByDefault%,0x00010001,0x00000201
+
+[ASIOVADPRO.Services]
+AddService=asiovadpro,0x00000002,asiovadpro_Service_Inst
+
+[asiovadpro_Service_Inst]
+DisplayName=%asiovadpro.SvcDesc%
+ServiceType=1
+StartType=3
+ErrorControl=1
+ServiceBinary=%12%\asiovadpro.sys
+
+;======================================================
+; COMMON
+;======================================================
+[Strings]
+JJShield="John Shield/O Deus Audio"
+MfgName="John Shield/O Deus Audio"
+
+ASIOVADPRO.DeviceDesc="ASIOVADPRO Driver"
+
+ASIOVADPRO.Wave1.szPname="ASIOVADPRO Wave1"
+ASIOVADPRO.Topo1.szPname="ASIOVADPRO Topology1"
+
+ASIOVADPRO.Wave2.szPname="ASIOVADPRO Wave2"
+ASIOVADPRO.Topo2.szPname="ASIOVADPRO Topology2"
+
+ASIOVADPRO.Wave3.szPname="ASIOVADPRO Wave3"
+ASIOVADPRO.Topo3.szPname="ASIOVADPRO Topology3"
+
+ASIOVADPRO.Wave4.szPname="ASIOVADPRO Wave4"
+ASIOVADPRO.Topo4.szPname="ASIOVADPRO Topology4"
+
+Proxy.CLSID="{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+
+KSCATEGORY_AUDIO    = "{6994AD04-93EF-11D0-A3CC-00A0C9223196}"
+KSCATEGORY_RENDER   = "{65E8773E-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_CAPTURE  = "{65E8773D-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_TOPOLOGY = "{DDA54A40-1E4C-11D1-A050-405705C10000}"
+
+KSNODETYPE_SPEAKER = "{DFF21CE1-F70F-11D0-B917-00A0C9223196}"
+KSNODETYPE_LINE_CONNECTOR = "{DFF21FE3-F70F-11D0-B917-00A0C9223196}"
+KSNODETYPE_MULTITRACK_RECORDER = "{DFF220F2-F70F-11D0-B917-00A0C9223196}"
+
+PKEY_AudioEndpoint_Association="{1DA5D803-D492-4EDD-8C23-E0C0FFEE7F0E},2"
+PKEY_AudioEngine_OEMFormat="{E4870E26-3CC5-4CD2-BA46-CA0A9A70ED04},3"
+PKEY_Device_DeviceDesc="{a45c254e-df1c-4efd-8020-67d146a850e0},2"
+PKEY_AudioDevice_EnableEndpointByDefault="{F3E80BEF-1723-4FF2-BCC4-7F83DC5E46D4},4"
+
+DeviceDescRender1="Speakers 01"
+DeviceDescCapture1="Mix 01"
+DeviceDescRender2="Speakers 02"
+DeviceDescCapture2="Mix 02"
+DeviceDescRender3="Speakers 03"
+DeviceDescCapture3="Mix 03"
+DeviceDescRender4="Speakers 04"
+DeviceDescCapture4="Mix 04"
+
+KSNAME_Wave1="Wave1"
+KSNAME_Topology1="Topology1"
+KSNAME_Wave2="Wave2"
+KSNAME_Topology2="Topology2"
+KSNAME_Wave3="Wave3"
+KSNAME_Topology3="Topology3"
+KSNAME_Wave4="Wave4"
+KSNAME_Topology4="Topology4"
+
+ASIOVADPRO.SvcDesc="ASIOVADPRO"
+
+MediaCategories="SYSTEM\CurrentControlSet\Control\MediaCategories"
+REG_BINARY          = "0x00000001"
