@@ -21,7 +21,7 @@ The script is very simple and raw. I'm not a good programmer by any means.
 
 2 - Grab the executable on the Releases pages **OR** just donwload the source code and compile it in AutoIt.
 
-3 - Unzip all the contents from the zip file. Run the asiolinkprofix.exe with Admin right. Don't forget to have the "fix" folder together.
+3 - Unzip all the contents from the zip file. Run the asiolinkprofix.exe with Admin rights. Don't forget to have the "fix" folder together.
 
 Tested on Windows 10 x64 and Windows 10 x86.
-The patched version on x86 environment is not guaranteed, but it works on 64bit Windows 10. (Why are you using 32-bit Windows anyways...?)
+The patched version on x86 environment is not guaranteed, but it works on 64bit Windows 10 - both 32bit and 64bit are OK on Windows 10 x64. (Why are you using 32-bit Windows anyways...?)
