@@ -19,7 +19,7 @@ The script is very simple and raw. I'm not a good programmer by any means.
 
 1 - Have ASIO Link Pro version 2.4.4.2 installed
 
-2 - Grab the executable on the Releases pages **OR** just donwload the source code and compile it in AutoIt.
+2 - Grab the executable on the Releases pages - (THE SOURCE CODE IS INCLUDED INSIDE THE ZIP FILE, JUST COMPILE IN AUTOIT IF YOU WANT).
 
 3 - Unzip all the contents from the zip file. Run the asiolinkprofix.exe with Admin rights. Don't forget to have the "fix" folder together.
 
