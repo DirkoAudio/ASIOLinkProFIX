@@ -23,8 +23,8 @@ The script is very simple and raw. I'm not a good programmer by any means.
 
 3 - Unzip all the contents from the zip file. Run the asiolinkprofix.exe with Admin rights. Don't forget to have the "fix" folder together.
 
-Tested on Windows 10 x64 and Windows 10 x86.
-The patched version on x86 environment is not guaranteed, but it works on 64bit Windows 10 - both 32bit and 64bit are OK on Windows 10 x64. (Why are you using 32-bit Windows anyways...?)
+Tested on Windows 10 and 11 x64 and Windows 10 x86.
+The patched version on x86 environment is not guaranteed, but it works on 64bit Windows 10 and 11 - both 32bit and 64bit are OK on Windows 10 and Windows 11 x64. (Why are you using 32-bit Windows anyways...?)
 
 
 Version 0.2 was necessary because something screwed with codepage of inf files. Also, I made it silent - no msgbox, only Log files. Make sure you unpack everything.
