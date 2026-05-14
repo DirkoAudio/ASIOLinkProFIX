@@ -1,5 +1,7 @@
 #PLEASE, CHECK https://github.com/DirkoAudio/ASIOLinkProRepack - for easier installation, already repacked with fixes and the license patch.
 
+<a href="https://ko-fi.com/M4M51YUAXU"><img src="https://storage.ko-fi.com/cdn/kofi2.png?v=6" alt="Ko-fi" width="110" /></a> <a href="https://www.paypal.com/donate?hosted_button_id=ASSDUH6S66LKC"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" alt="PayPal" /></a>
+
 # ASIOLinkProFIX
  Patch and Driver FIX for ASIO Link Pro on Windows 10 / Windows 11
  
