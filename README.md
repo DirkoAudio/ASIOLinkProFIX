@@ -1,3 +1,5 @@
+#PLEASE, CHECK https://github.com/DirkoAudio/ASIOLinkProRepack - for easier installation, already repacked with fixes and the license patch.
+
 # ASIOLinkProFIX
  Patch and Driver FIX for ASIO Link Pro on Windows 10 / Windows 11
  
